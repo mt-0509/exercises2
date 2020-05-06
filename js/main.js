@@ -12,8 +12,8 @@
       // 合計金額の計算
       total.textContent = Math.floor(input.value * 1.1);
     } else {
-      tax.textContent = null;
-      total.textContent = null;
+      tax.textContent = "";
+      total.textContent = "";
     }
 
 
