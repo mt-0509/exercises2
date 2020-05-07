@@ -1,4 +1,9 @@
 #wrapper {
   text-align: center;
+  border-bottom: 1px solid gray;
   margin-top: 200px;
+}
+
+#wrapper2 {
+  text-align: center;
 }

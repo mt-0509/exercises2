@@ -1,21 +1,40 @@
 'use strict';
 {
-  const input = document.getElementById('input');
-  const total = document.getElementById('total');
-  const tax = document.getElementById('tax');
+  
+  let text = document.getElementById('text');
 
-  input.addEventListener('change', () => {
-    if (input.value !== "") {
-      // 消費税の計算
-      tax.textContent = Math.floor(input.value * 0.1);
+    document.getElementById('wrapper').addEventListener('click', () => {
+      let flag = false;
+
+      for (let i = 0; i < document.form1.select.length; i++) {
+        if (document.form1.select[i].checked) {
+          flag = true;
+          text.innerText = document.form1.select[i].value
+        }
+      }
+      if (!flag) {
+        text.innerText = "";
+      }
+    })
+    
+    document.getElementById('ALL').addEventListener('click', () => {
+      const select = document.form1.select;
+      let flag = true;
+      if (flag === true) {
+        for(let i = 0; i < select.length; i++) {
+          select[i].checked = true;
+        } 
+      } 
+       
       
-      // 合計金額の計算
-      total.textContent = Math.floor(input.value * 1.1);
-    } else {
-      tax.textContent = "";
-      total.textContent = "";
-    }
+      for (let i = 0; i < select.length; i++) {
+        if(select[i].checked == false) {
+          document.form1.select.select = false;
+        } else  {
+            document.form1.checked = true;
+          }
+        
+      }
 
-
-  })
+    });
 }

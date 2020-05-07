@@ -7,15 +7,20 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="wrapper">
-    <p>税抜き価格を入力してください</p>
-    <input type="text" id="input">
-    <p>消費税額</p>
-    <div id="tax"></div>
+  <form name="form1" id="wrapper">
+    <p id="text"></p>
+    <input type="checkbox" name="select" value="Aが選択されました">A
+    <input type="checkbox" name="select" value="Bが選択されました">B
+    <input type="checkbox" name="select" value="Cが選択されました">C
+    <input type="checkbox" name="select" value="Dが選択されました">D
+    <input type="checkbox" name="select" value="Eが選択されました">E
+  </form>
+  <div id="wrapper2">
+    <input id="ALL" type="checkbox" name="select" value="ALL">ALL
 
-    <p>合計金額</p>
-    <div id="total"></div>
   </div>
+  
+
   <script src="js/main.js"></script>
 </body>
 </html>
