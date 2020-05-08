@@ -1,40 +1,23 @@
 'use strict';
 {
+  const src = ["img/1.png","img/2.png","img/3.png","img/4.png"];
+  let num1 = 0;
+  let num2 = 0;
   
-  let text = document.getElementById('text');
-
-    document.getElementById('wrapper').addEventListener('click', () => {
-      let flag = false;
-
-      for (let i = 0; i < document.form1.select.length; i++) {
-        if (document.form1.select[i].checked) {
-          flag = true;
-          text.innerText = document.form1.select[i].value
-        }
-      }
-      if (!flag) {
-        text.innerText = "";
-      }
-    })
+  document.getElementById('btn1').addEventListener('click', () => {
     
-    document.getElementById('ALL').addEventListener('click', () => {
-      const select = document.form1.select;
-      let flag = true;
-      if (flag === true) {
-        for(let i = 0; i < select.length; i++) {
-          select[i].checked = true;
-        } 
-      } 
-       
-      
-      for (let i = 0; i < select.length; i++) {
-        if(select[i].checked == false) {
-          document.form1.select.select = false;
-        } else  {
-            document.form1.checked = true;
-          }
-        
-      }
+    if (num1 < src.length - 1) {
+      num1 ++;
+      document.getElementById('pic1').src = src[num1];
+    } else {
+      num1 = 0;
+      document.getElementById('pic1').src = src[num1];
+    }
+  })
 
-    });
+  document.getElementById('btn2').addEventListener('click', () => {
+    num2 = Math.floor(Math.random() * src.length);
+    document.getElementById('pic2').src = src[num2];
+  })
+
 }

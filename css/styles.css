@@ -1,9 +1,10 @@
 #wrapper {
-  text-align: center;
-  border-bottom: 1px solid gray;
-  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  font-weight: bold;
 }
 
-#wrapper2 {
+#wrapper div {
   text-align: center;
 }
