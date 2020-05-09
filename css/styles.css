@@ -1,10 +1,4 @@
 #wrapper {
-  display: flex;
-  justify-content: center;
-  justify-content: space-evenly;
-  font-weight: bold;
-}
-
-#wrapper div {
   text-align: center;
+  margin-top: 200px;
 }
