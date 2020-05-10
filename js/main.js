@@ -7,7 +7,13 @@
     one: 1,
     two: 2,
     three: x,
-    same
+    same,
+    five: function () {
+      console.log(5);
+    },
+    six() {
+      console.log(6);
+    }
   }
   
   // 追加
@@ -18,6 +24,8 @@
 
   console.log(obj);
   console.log(obj.same);
+  obj.five();
+  obj.six();
   
 
 
