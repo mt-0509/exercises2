@@ -1,33 +1,36 @@
 'use strict';
 {
-  let x = 3;
-  let same = 2 ;
+  const img = document.getElementsByTagName('img');
+  const img2 = ['img/1.png','img/2.png','img/3.png','img/4.png','img/5.gif'];
 
-  let obj = {
-    one: 1,
-    two: 2,
-    three: x,
-    same,
-    five: function () {
-      console.log(5);
-    },
-    six() {
-      console.log(6);
-    }
-  }
+  img[0].addEventListener('mouseenter', () => {
+    img[4].src = img2[0]
+  });
+  img[0].addEventListener('mouseleave', () => {
+    img[4].src = img2[4]
+  });
+
+  img[1].addEventListener('mouseenter', () => {
+    img[4].src = img2[1]
+  });
+  img[1].addEventListener('mouseleave', () => {
+    img[4].src = img2[4]
+  });
+
+  img[2].addEventListener('mouseenter', () => {
+    img[4].src = img2[2]
+  });
+  img[2].addEventListener('mouseleave', () => {
+    img[4].src = img2[4]
+  });
   
-  // 追加
-  obj.four = 4;
-
-  // 削除
-  delete obj.one
-
-  console.log(obj);
-  console.log(obj.same);
-  obj.five();
-  obj.six();
+  img[3].addEventListener('mouseenter', () => {
+    img[4].src = img2[3]
+  });
+  img[3].addEventListener('mouseleave', () => {
+    img[4].src = img2[4]
+  })
   
-
 
 
 }
