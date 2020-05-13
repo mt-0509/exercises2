@@ -7,12 +7,17 @@
   <title>Document</title>
 </head>
 <body>
-  <form name="form" action="">
-    <input id="check" name="check" type="checkbox">内容に同意します<br>
-    <input id="btn" type="button" value="送信">
-  </form>
-  
-  
+  <div>
+    <form action="" name="form">
+      <select name="job" id="select">
+        <option disabled selected>選択してください</option>
+        <option value="正社員">正社員</option>
+        <option value="アルバイト">アルバイト</option>
+        <option value="無職">無職</option>
+      </select>
+      <p id="text"></p>
+    </form>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
