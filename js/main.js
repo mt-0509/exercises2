@@ -9,17 +9,11 @@
     
     if (value !== '無職') {
       text.innerHTML = `${value}が選択されました`
-    } else {
-      text.innerHTML = 'そんな時もあります'
-    }
-
-    if (value !== '無職') {
       text.classList.remove('class')
     } else {
+      text.innerHTML = 'そんな時もあります'
       text.classList.add('class');
     }
-    
-    
   });
 
 
