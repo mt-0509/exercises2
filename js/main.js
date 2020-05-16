@@ -1,41 +1,97 @@
 'use strict';
 {
-  const select = document.getElementById('select');
+  // 1 map
+  // 配列に指定した処理を実行した配列を新たに作成する
+  let num = [1,2,3,4,5,6,7,8,9,];
+  let result = num.map(e => e * 2);
+  console.log(result);
+  // [2, 4, 6, 8, 10, 12, 14, 16, 18]
 
-  const p = document.getElementById('p')
+  let kvarray = [
+    {key: 1, name: '田中'},
+    {key: 2, name: '佐藤'},
+    {key: 3, name: '鈴木'}
+  ];
+  console.log(kvarray[0]);
 
-  // select.optionsの戻り値がHTMLOptionsCollectionなので配列に直す
-  // ...は個々の値に展開することができる
-  const chosenList = [...select.options];
+  let reformattedArray = kvarray.map(obj => {
+    let rObj = {};
+    rObj[obj.key] = '5';
+    rObj[obj.name] = '太朗';
+    return rObj;
+  });
+  console.log(reformattedArray);
+  // アクセスしたプロパティが全て変更される
 
-  select.addEventListener('change', () => {
 
-    // 選択肢が全て選択状態であればtrueを返す式
-    // 一つでも選択されていなければfalseを返す everyメソッド使用
-    // everyは与えられた関数の処理が全て通るかテストする関数
-    const result = chosenList.every(el => {
-      return el.selected;
-    });
+  // 2 filter
+  // テスト関数に合致した値のみを抽出して新たな配列を作成する
+  const num2 = [2,3,4,6,9,18,26,30];
+  const result2 = num2.filter(x => x > 10);
+  console.log(result2);
+  // [18, 26, 30]
 
-    if (result) {
-      return p.textContent = '太りますよ...'
-    }
+  // 別な感じの書き方
+  const s = (value) => {
+    return value > 10;
+  }
 
-    // 選択状態を調べてselectedの場合のみ配列にpushする。reduceメソッド使用
-    // foeEachを使用の場合あらかじめ配列の用意が必要だが、
-    // reduceを使いselectされている物のみの配列を生成
+  let ss = num2.filter(s);
+  console.log(ss);
 
-    // reduceの基本的な使い方は配列に格納されたデータをすべて合計した値を取得する、
-    const choices = chosenList.reduce((arr,cur)=>{
-      console.log(cur);
-    if(cur.selected){
-      arr.push(cur.value);
-    }
-    return arr;
-    },[]);
 
-    // joinは配列の全要素を連結した文字列を返す。また指定した文字列などで要素と要素を区切ることができる
-    p.textContent = choices.join('と');
-  })
+
+  // 3 reduce
+  // 配列の各要素に対して引数で与えれられた関数を実行して単一の結果にする
+
+  const num3 = [1,2,3,4];
+  const reducer = (acc, cur) => acc + cur;
+  console.log(num3.reduce(reducer));
+  // 10
+
+
+  const result3 = [0, 1, 2, 3, 4].reduce( (accumulator, currentValue) => {
+    return accumulator + currentValue
+  }, 10)
+
+  console.log(result3);
+
+  let initialValue = 0;
+  let sum = [{x: 'あ'}, {x: 'い'}, {x: 'う'}].reduce(
+    (accumulator, currentValue) => accumulator + currentValue.x
+    , initialValue
+  )
+
+  console.log(sum);
+
+  // 二次元配列を一次元配列にする
+  let flattened = [[0,1], [2,3], [4,5]].reduce(
+    function(accumulator, currentValue) {
+      return accumulator.concat(currentValue)
+    },[]
+  )
+  // 第二引数の[]あってもなくても結果変わらない
+
+  console.log(flattened);
+
+
+
+
+  // スプレッド構文を使った配列への変換方法
+  const word = 'おはよう';
+  const converted = [...word];
+  console.log(converted);
+
+
+  // Array.from()
+  const array = Array.from('こんにちは');
+  console.log(array);
+  //  ['こ','ん','に','ち','は']
+
+
+
+
+
+
 
 }
