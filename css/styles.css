@@ -2,3 +2,12 @@ div {
   text-align: center;
   margin-top: 200px;
 }
+
+#result {
+  width: 200px;
+  height: 150px;
+}
+
+.none {
+  display: none;
+}
