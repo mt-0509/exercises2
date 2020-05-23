@@ -29,4 +29,24 @@
   let hiki = keisan.hikizan();
   let d = keisan.do();
 
+  // 親クラスのプロパティを継承し、かつプロパティを1つ追加する
+  class Keisan2 extends Keisan {
+    constructor(x,y,z) {
+      super(x,y)
+      this.z = z;
+    }
+  }
+
+  // プロパティの追加なしで、メソッドを1つ追加したものを作る
+  class Keisan3 extends Keisan {
+    warizan () {
+      console.log(this.x / this.y);
+    }
+  }
+
+  let keisan3 = new Keisan3(10,2);
+  keisan3.warizan()
+    
+
+
 }
