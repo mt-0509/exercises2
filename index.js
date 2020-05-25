@@ -1,10 +1,27 @@
-import { Second } from './Second.js';
-import { Third } from "./Third.js";
+'use strict';
+{
+  class Keisan {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    static ok () {
+      return console.log('ok');
+    }
+    get kake() {
+      return this.x * this.y;
+    }
 
-const second = new Second();
-const third = new Third();
+    set condinary(arr) {
+      this.x = arr.x;
+      this.y = arr.y;
+    }
+  }
+  Keisan.ok();
 
-third.getFirstName();
-second.getSecondName();
-third.getThirdName();
-console.log(third.getnum());
+  const keisan = new Keisan(10, 5);
+  console.log(keisan.kake);
+  keisan.condinary = {x: 20, y:10};
+  console.log(keisan.kake);
+
+}
