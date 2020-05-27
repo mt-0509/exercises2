@@ -1,27 +1,29 @@
 'use strict';
 {
-  class Keisan {
-    constructor(x, y) {
-      this.x = x;
-      this.y = y;
-    }
-    static ok () {
-      return console.log('ok');
-    }
-    get kake() {
-      return this.x * this.y;
-    }
 
-    set condinary(arr) {
-      this.x = arr.x;
-      this.y = arr.y;
+  class Charactor {
+    constructor(name, HP, power) {
+      this.name = name;
+      this.HP = HP;
+      this.power = power;
+    }
+    gethp(min, max) {
+      this.HP = Math.floor(Math.random() * (max - min + 1) + min);
+      return console.log(`${this.name}のHPは${this.HP}です`);
+    }
+    getpower(min, max) {
+      this.power = Math.floor(Math.random() * (max - min + 1) + min);
+      return console.log(`${this.name}のpowerは${this.power}です`);
+    };
+    attack() {
+      return console.log(`敵に${this.power}のダメージ!`)
     }
   }
-  Keisan.ok();
 
-  const keisan = new Keisan(10, 5);
-  console.log(keisan.kake);
-  keisan.condinary = {x: 20, y:10};
-  console.log(keisan.kake);
+  let neko = new Charactor('neko')
+  neko.gethp(300, 800);
+  neko.getpower(100, 500);
+  neko.attack();
 
+  
 }
