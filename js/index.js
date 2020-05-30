@@ -1,33 +1,62 @@
 'use strict';
 {
-  // 自分のコード
-  class Charactor {
-    constructor(name, HP, power) {
-      this.name = name;
-      this.HP = Math.floor(Math.random() * 501) + 1;
-      this.power = Math.floor(Math.random() * 501) + 1;
-      this.defense = Math.floor(Math.random() * 501) + 1;
-    }
-    attack(enemy) {
-      let damage = enemy.defense - this.power;
-      console.log(`ダメージ値${damage}`);
-      if(damage >= 0) {
-        enemy.HP -1;
-        console.log(enemy.HP -1,1);
-        console.log(`${enemy.name}に1のダメージ!`)
-      } else {
-        enemy.HP + damage;
-        console.log(enemy.HP + damage,2);
-        console.log(`${enemy.name}に${Math.abs(damage)}のダメージ!`);
-      }
-    }
+  // for...in
+  const object = {a:1, b:2, c:3};
+
+  for (const property in object) {
+    // console.log(`${property}:${object[property]}`);
+    console.log(property);
   }
 
-  let neko = new Charactor('neko');
-  console.log(`NEKOのhpは${neko.HP}, powerは${neko.power}, defenceは${neko.defense}`);
+  const data = ['apple', 'orange', 'banana'];
+  Array.prototype.hoge = function () {}
 
-  let enemy = new Charactor('enemy');
-  console.log(`敵のhpは${enemy.HP}, powerは${enemy.power}, defenceは${enemy.defense}`);
+  for (const key in data) {
+    console.log(key);
+    console.log(data[key]);
+  }
 
-  neko.attack(enemy);
+  // for...inの問題点
+  // ①処理の順序が保証されないそのため配列には使用しないほうがいい 
+  // ②配列で使うと拡張された機能まで列挙されてしまう
+
+
+  // for...of
+  const object2 = ['one', 'two', 'three'];
+
+  Array.prototype.hoge = function () {}
+  for (const value of object2) {
+    console.log(value);
+  }
+
+
+
+
+  // お手本のコード
+  const obj = {
+    first: 1,
+    second: 2,
+    third: 3
+  };
+
+  for(const key in obj) {
+    console.log(`key:${key}, value:${obj[key]}`);
+  }
+
+  // 問題点
+  // オブジェクトは何らかのオブジェクトを継承しているため、オブジェクトのプロパティを列挙する場合に親オブジェクトまで列挙可能なプロパティを探しにいき、可能なものがあれば列挙してしまう。そのため意図しない結果になる可能性がある。
+
+  // 解決策
+  // Objectの静的メソッドであるkeys, values, entriesを使う
+  // 上記の静的メソッドは引数のオブジェクト自身が持っている列挙可能なプロパティの配列を返してくれる
+
+  console.log(Object.keys(obj));
+  console.log(Object.values(obj));
+  console.log(Object.entries(obj))
+
+  Object.keys(obj).forEach(value => {
+    console.log(value);
+  })
+
+
 }
