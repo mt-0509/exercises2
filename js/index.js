@@ -1,62 +1,33 @@
 'use strict';
 {
-  // for...in
-  const object = {a:1, b:2, c:3};
+  let map = new Map();
+  // ①要素の追加
+  map.set('one', 1);
+  map.set('two', 2);
+  map.set('three', 3);
 
-  for (const property in object) {
-    // console.log(`${property}:${object[property]}`);
-    console.log(property);
-  }
+  // ②要素数の取得
+  console.log(map.size);
 
-  const data = ['apple', 'orange', 'banana'];
-  Array.prototype.hoge = function () {}
+  // ③指定したキーの取得
+  console.log(map.get('two'));
 
-  for (const key in data) {
-    console.log(key);
-    console.log(data[key]);
-  }
+  // ④指定したキーの要素が存在するか
+  console.log(map.has('one'));
+  console.log(map.has('four'));
 
-  // for...inの問題点
-  // ①処理の順序が保証されないそのため配列には使用しないほうがいい 
-  // ②配列で使うと拡張された機能まで列挙されてしまう
+  // ⑤指定したキーの要素を削除
+  map.delete('three')
+  console.log(map.size);
 
-
-  // for...of
-  const object2 = ['one', 'two', 'three'];
-
-  Array.prototype.hoge = function () {}
-  for (const value of object2) {
-    console.log(value);
-  }
-
-
-
-
-  // お手本のコード
-  const obj = {
-    first: 1,
-    second: 2,
-    third: 3
-  };
-
-  for(const key in obj) {
-    console.log(`key:${key}, value:${obj[key]}`);
-  }
-
-  // 問題点
-  // オブジェクトは何らかのオブジェクトを継承しているため、オブジェクトのプロパティを列挙する場合に親オブジェクトまで列挙可能なプロパティを探しにいき、可能なものがあれば列挙してしまう。そのため意図しない結果になる可能性がある。
-
-  // 解決策
-  // Objectの静的メソッドであるkeys, values, entriesを使う
-  // 上記の静的メソッドは引数のオブジェクト自身が持っている列挙可能なプロパティの配列を返してくれる
-
-  console.log(Object.keys(obj));
-  console.log(Object.values(obj));
-  console.log(Object.entries(obj))
-
-  Object.keys(obj).forEach(value => {
-    console.log(value);
+  map.forEach(function(value, key) {
+    console.log("[" + key + ", " + value + "]")
   })
+
+  // Mapの利点
+  // キーに任意の型を使うことができる
+  // サイズプロパティを使って簡単に要素の数を取得することができる
+  // 完全にからの連想配列を作成することができる
 
 
 }
