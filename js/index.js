@@ -1,21 +1,17 @@
 'use strict';
 {
-  // 定義方法
-  // (引数,...) => {...関数の本体...}
+  let a, b,rest;
+  [a, b,...rest] = [4, 8,10, 20, 30];
+  console.log(a); // 4
+  console.log(b); // 8
+  console.log(rest); // 10, 20, 30
 
-  let double = (num) => {
-    return num * 2
-  };
-  console.log(double(9));
+  ({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+  console.log(a); // 10
+  console.log(b); // 20
+  console.log(rest); // {c: 30, d: 40}
 
-  // 省略記法
-  let triple = num => num * 3;
-  console.log(triple(4));
 
-  // functionとアロー関数の違い
-  // ①thisの指す場所が違う
-  // ②アロー関数はコンストラクタになることができないのでextendsできない
-  // などなど
 
 
 }
