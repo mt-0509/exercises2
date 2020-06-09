@@ -1,11 +1,13 @@
 'use strict';
 {
-  const ninja = [2,34,561,5,14];
-  let futaketa = ninja.filter(function (num) {
-    return 9 < num && num < 100
-  });
-  
-  alert(futaketa);
+  const host = document.querySelector('.host');
+  const root = host.attachShadow({mode: 'open'})
+
+  const slot = document.createElement('slot');
+  slot.name = 'user-name';
+
+  root.textContent = 'My name is ';
+  root.appendChild(slot);
 
 
 
